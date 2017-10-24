@@ -1,0 +1,8 @@
+services:
+    forlagshuset_common.legacy_mapper.configuration:
+        class: Forlagshuset\LegacyIniBundle\LegacyMapper\Configuration
+        arguments:
+            - "@ezpublish.config.resolver.core"
+            - %forlagshuset_legacy_ini.enabled_legacy_settings%
+        tags:
+            - { name: kernel.event_subscriber }
