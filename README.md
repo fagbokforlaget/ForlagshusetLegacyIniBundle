@@ -1,7 +1,7 @@
 Forlagshuset Legacy INI Bundle
 ==================
 
-Replace your EzPublish Legacy ini config with yaml files.
+Replace EzPublish Legacy ini config with yaml files.
 
 This bundle is based on legacy settings injection mechanism (https://doc.ez.no/display/EZP/Legacy+configuration+injection).
 INI settings can be injected per siteaccess group.
@@ -134,4 +134,4 @@ forlagshuset_legacy_ini:
 Authors Information
 ------------------
 
-This Bundle was created in 2017 by Ivan Herak (netgenlabs.com) and Igor Makowski (forlagshuset.no)
+This Bundle was created in 2017 by Ivan Herak (https://netgenlabs.com) and Igor Makowski (https://forlagshuset.no)
