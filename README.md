@@ -10,7 +10,7 @@ INI settings can be injected per siteaccess group.
 Installation
 ------------------
 
-Install bundle using composer: `composer require "forlagshuset/legacy-ini-bundle:*"`
+Install bundle using composer: `composer require forlagshuset/legacy-ini-bundle`
 
 Add `new Forlagshuset\LegacyIniBundle\ForlagshusetLegacyIniBundle()` to `app/AppKernel.php`
 
@@ -30,37 +30,40 @@ forlagshuset_legacy_ini:
         - site.ini
     system:
         ngadmin_group:
-            injected_settings:
+            injected_merge_settings:
                 content.ini:
                     VersionView/AvailableSiteDesignList:
                         - admin2
                         - admin
                 site.ini:
-                    DatabaseSettings/SQLOutput: disabled
-                    ContentSettings/ViewCaching: enabled
-                    OverrideSettings/Cache: enabled
-                    TemplateSettings/Debug: disabled
-                    TemplateSettings/DevelopmentMode: disabled
-                    TemplateSettings/TemplateCache: enabled
-                    TemplateSettings/TemplateCompile: enabled
-                    TemplateSettings/ShowUsedTemplates: disabled
-                    TemplateSettings/ShowXHTMLCode: disabled
-                    DebugSettings/DebugOutput: disabled
-                    DebugSettings/DebugRedirection: disabled
-
-                    DesignSettings/SiteDesign: ngadminui
                     DesignSettings/AdditionalSiteDesignList:
                         - admin2
                         - admin
                         - standard
                         - base
+            injected_settings:
+                site.ini:
+                    DatabaseSettings/SQLOutput: disabled
+                    ContentSettings/ViewCaching: enabled
+                    OverrideSettings/Cache: enabled
+                    TemplateSettings/Debug: disabled
+                    TemplateSettings/DevelopmentMode: disabled
+                    TemplateSettings/TemplateCache: enabled
+                    TemplateSettings/TemplateCompile: enabled
+                    TemplateSettings/ShowUsedTemplates: disabled
+                    TemplateSettings/ShowXHTMLCode: disabled
+                    DebugSettings/DebugOutput: disabled
+                    DebugSettings/DebugRedirection: disabled
+                    DesignSettings/SiteDesign: ngadminui
+
 
         site_group:
-            injected_settings:
+            injected_merge_settings:
                 content.ini:
                     VersionView/AvailableSiteDesignList:
                         - admin2
                         - admin
+            injected_settings:
                 site.ini:
                     DatabaseSettings/SQLOutput: disabled
                     ContentSettings/ViewCaching: enabled
@@ -74,19 +77,10 @@ forlagshuset_legacy_ini:
                     DebugSettings/DebugOutput: disabled
                     DebugSettings/DebugRedirection: disabled
 
+
         default:
-            injected_settings:
+            injected_merge_settings:
                 site.ini:
-                    FileSettings/VarDir: var/site
-                    Session/SessionNameHandler: custom
-                    UserSettings/LogoutRedirect: /
-                    DesignSettings/DesignLocationCache: enabled
-
-                    MailSettings/Transport: sendmail
-                    MailSettings/AdminEmail: ez_dev@forlagshuset.no
-                    MailSettings/EmailSender: ez_dev@forlagshuset.no
-
-                    ExtensionSettings/ExtensionOrdering: enabled
                     ExtensionSettings/ActiveExtensions:
                         - ngadminui
                         - ezplatformsearch
@@ -100,14 +94,6 @@ forlagshuset_legacy_ini:
                         - ezdemo
                         - ezflow
                         - ezoe
-
-                    SiteSettings/DefaultAccess: site
-                    SiteSettings/RootNodeDepth: 1
-                    SiteSettings/SiteList:
-                        - site
-                        - site_admin
-                        - ngadmin
-
                     SiteAccessRules/Rules:
                         - access;disable
                         - module;user/register
@@ -121,13 +107,32 @@ forlagshuset_legacy_ini:
                         - module;settings/edit
                         - module;visual
                         - module;shop
-
-                    SiteAccessSettings/CheckValidity: false
-                    SiteAccessSettings/MatchOrder: uri
+                    SiteSettings/SiteList:
+                        - site
+                        - site_admin
+                        - ngadmin
                     SiteAccessSettings/AvailableSiteAccessList:
                         - site
                         - site_admin
                         - ngadmin
+
+            injected_settings:
+                site.ini:
+                    FileSettings/VarDir: var/site
+                    Session/SessionNameHandler: custom
+                    UserSettings/LogoutRedirect: /
+                    DesignSettings/DesignLocationCache: enabled
+
+                    MailSettings/Transport: sendmail
+                    MailSettings/AdminEmail: ez_dev@forlagshuset.no
+                    MailSettings/EmailSender: ez_dev@forlagshuset.no
+
+                    ExtensionSettings/ExtensionOrdering: enabled
+
+                    SiteSettings/DefaultAccess: site
+
+                    SiteAccessSettings/CheckValidity: "false"
+                    SiteAccessSettings/MatchOrder: uri
 ```
 
 
