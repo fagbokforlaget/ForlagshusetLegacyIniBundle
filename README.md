@@ -10,7 +10,7 @@ INI settings can be injected per siteaccess group.
 Installation
 ------------------
 
-Install bundle using composer.
+Install bundle using composer: `composer require forlagshuset/legacy-ini-bundle`
 
 Add `new Forlagshuset\LegacyIniBundle\ForlagshusetLegacyIniBundle()` to `app/AppKernel.php`
 
